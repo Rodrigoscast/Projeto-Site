@@ -1,0 +1,497 @@
+.back{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.page_center{
+    width: 85%;
+    background-color: var(--secondary);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.topo_pagina{
+    background-color: var(--primary);
+    color: var(--secondary);
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.topo_pagina div{
+    padding-left: 10px;
+}
+
+.corpo_pagina{
+    padding: 20px;
+}
+
+.adiciona_item{
+    position: relative;
+    margin: 30px 0;
+    width: 500px;
+    border-bottom: 2px solid var(--tertiary);
+    background: transparent;
+}
+.adiciona_item label {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    transform: translateY(-50%);
+    color: var(--tertiary);
+    font-size: 1em;
+    pointer-events: none;
+    transition: 0.5s;
+    background: transparent;
+}
+
+.adiciona_item input:focus + label,
+.adiciona_item input:valid + label {
+    top: -5px;
+    font-size: 0.8em; /* Opcional: Reduzir o tamanho da label quando ela estiver no topo */
+}
+
+.adiciona_item label[for="descricao"] {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    transform: translateY(-50%);
+    color: var(--tertiary);
+    font-size: 1em; /* Mantém o tamanho da fonte original */
+    pointer-events: none;
+    transition: 0.5s;
+    background: transparent;
+}
+
+.adiciona_item textarea:focus + label[for="descricao"],
+.adiciona_item textarea:valid + label[for="descricao"] {
+    top: -5px;
+    font-size: 0.8em;
+}
+
+.adiciona_item select {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 5px;
+    color: var(--tertiary);
+    appearance: none; /* Remove o estilo padrão do sistema */
+    background-image: url(../store-page/svg/chevron-down-outline.svg); /* Adicione uma seta personalizada (substitua 'seta.png' pelo caminho da sua imagem) */
+    background-size: 20px;
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.adiciona_item input {
+width: 100%;
+height: 50px;
+background: transparent;
+border: none;
+outline: none;
+font-size: 1em;
+padding:0 35px 0 5px;
+color: var(--tertiary);
+}
+
+#descricao{
+    height: 50%;
+}
+
+.central{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+
+.central div{
+    width: 100%;
+}
+
+#abre_imagem{
+    cursor: pointer;
+    background-color: var(--primary);
+    border-radius: 50px;
+    padding: 2%;
+    color: var(--secondary);
+}
+
+.ignora_menu{
+    width: 22vh;
+}
+
+/* Estilos para o campo "Valor" */
+.adiciona_item input[type="number"] {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 5px;
+    color: var(--tertiary);
+}
+
+/* Estilos para o campo "Descrição" */
+.adiciona_item textarea {
+    width: 100%;
+    resize: vertical; /* Permite que o campo cresça verticalmente */
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 5px;
+    color: var(--tertiary);
+}
+    
+/* Estilos para os botões */
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button#adicionarFiltro,
+button#salvarFiltro {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#adicionarFiltro:hover,
+button#salvarFiltro:hover {
+    background-color: #0056b3;
+}
+
+
+#tabela_filtro {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#tabela_filtro th, #tabela_filtro td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+#tabela_filtro th {
+    background-color: #f2f2f2;
+}
+
+.excluir, .editar {
+    cursor: pointer;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.excluir {
+    background-color: #ff0000;
+}
+
+.editar {
+    background-color: #007bff;
+}
+
+.excluir:hover, .editar:hover {
+    background-color: #ff3333;
+}
+
+.editar {
+    margin-right: 5px;
+}
+
+/* Estilos para o formulário de adição de filtro */
+#formulario {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#novoNome {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#novoNome:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button#adicionarFiltro {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#adicionarFiltro:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para o botão "Salvar" */
+button#salvarFiltro {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#salvarFiltro:hover {
+    background-color: #218838;
+}
+
+/* Adicione espaço entre o botão "Adicionar Filtro" e a tabela */
+.novo-filtro {
+    margin-top: 20px;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.botao {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.botao:hover {
+    background-color: #0056b3;
+}
+  
+.upload-button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.separador{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.div-central{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.search-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+#resultados{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para o iframe e contêiner */
+.iframe-container {
+    width: 80%; /* Ajuste a largura conforme necessário */
+    margin: 0 auto;
+    border: 2px solid #000000; /* Cor da borda */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+iframe {
+    width: 100%;
+    height: 400px; /* Ajuste a altura conforme necessário */
+    border: none; /* Sem borda interna no iframe */
+    border-radius: 8px; /* Borda arredondada para o iframe */
+}
+
+/* Estilo para a tabela de produtos */
+.tabela-produtos {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Estilo para o cabeçalho da tabela */
+.tabela-produtos th {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+/* Estilo para as células da tabela */
+.tabela-produtos td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+/* Estilo para as linhas ímpares (opcional) */
+.tabela-produtos tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para os botões "Editar" e "Adicionar Imagens" */
+.editar-button, .adicionar-imagens {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Estilo ao passar o mouse sobre os botões (opcional) */
+.editar-button:hover, .adicionar-imagens:hover {
+    background-color: #0056b3;
+}
+
+.editar-button a , .botao a, .excluir a, .adicionar-imagens a, .botao_principal a{
+    color:  #fff;
+    text-decoration: none;
+}
+
+.topo_produtos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.topo_produtos div{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-file {
+    display: none;
+}
+
+.custom-button {
+    background-color: blue;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-bottom: 10%;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+    background-color: darkblue;
+}
+
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-preview img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px;
+}
+
+.div-img{
+    margin: 2%;
+}
+
+.image-add {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.image-add img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px;
+}
+
+#li-isolado{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 10%;
+    min-width: 10%;
+    margin: 0.3%;
+}
+
+.botao_principal1 {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 4%;
+}
+
+.botao_principal {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 4%;
+}
+
+.botao_principal:hover {
+    background-color: #0056b3;
+}
